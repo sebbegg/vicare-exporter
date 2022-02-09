@@ -1,0 +1,11 @@
+global:
+  scrape_interval:     60s
+
+rule_files:
+  # - "first.rules"
+  # - "second.rules"
+
+scrape_configs:
+  - job_name: vicare
+    static_configs:
+      - targets: ['vicare-exporter:8000']

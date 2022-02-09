@@ -1,0 +1,30 @@
+version: "3"
+services: 
+  prometheus:
+    restart: always
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes: 
+      - prometheus-data:/prometheus/data
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  grafana:
+    restart: always
+    image: grafana/grafana-oss:latest
+    ports:
+      - 3000:3000
+  vicare-exporter:
+    restart: always
+    image: ghcr.io/sebbegg/vicare-exporter:latest
+    build:
+      context: .
+    environment: 
+      VICARE_USERNAME: ${VICARE_USERNAME}
+      VICARE_CLIENT_ID: ${VICARE_CLIENT_ID}
+      VICARE_EXPORTER_PORT: 8000
+    ports:
+      - 8000:8000
+
+volumes: 
+  grafana-data:
+  prometheus-data:
