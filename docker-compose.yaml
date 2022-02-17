@@ -22,9 +22,8 @@ services:
       VICARE_USERNAME: ${VICARE_USERNAME}
       VICARE_PASSWORD: ${VICARE_PASSWORD}
       VICARE_CLIENT_ID: ${VICARE_CLIENT_ID}
-      VICARE_METRICS_PORT: 8000
     ports:
-      - 8000:8000
+      - 9100:9100
 
 volumes: 
   grafana-data:
