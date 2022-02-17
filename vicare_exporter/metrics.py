@@ -1,11 +1,18 @@
-import functools
+import logging
 import re
-from prometheus_client import Enum, Gauge, start_http_server
+import time
+from datetime import datetime
 
+from prometheus_client import Enum, Gauge
+from PyViCare.PyViCare import PyViCare
+from PyViCare.PyViCareUtils import (PyViCareInternalServerError,
+                                    PyViCareRateLimitError)
 
+log = logging.getLogger("vicare_exporter")
 unit_translations = {"kilowattHour": "kWh"}
 
 _component_re = re.compile("^heating_(circuit|burner)s_(\d+)(.*)")
+
 
 def _extract_circuit_id(feature_name) -> tuple[str, str]:
     component_match = _component_re.match(feature_name)
@@ -14,12 +21,14 @@ def _extract_circuit_id(feature_name) -> tuple[str, str]:
         name = _component_re.sub(r"heating_\1\3", feature_name)
         label = component_match.group(1) + "_id"
         return component_id, label, name
-    
+
     else:
         return None, None, feature_name
 
+
 # want this memoized so we don't create duplicated metrics
 _metrics = {}
+
 
 def get_metric_for_name(name: str, labels: list[str]):
     if name in _metrics:
@@ -49,7 +58,9 @@ def get_metric_for_name(name: str, labels: list[str]):
             labelnames=labels,
         )
     elif name.endswith("_status"):
-        _metrics[name] = Enum(name, "Status", states=["error", "connected"], labelnames=labels)
+        _metrics[name] = Enum(
+            name, "Status", states=["error", "connected"], labelnames=labels
+        )
     else:
         _metrics[name] = Gauge(name, name, labelnames=labels)
 
@@ -103,3 +114,43 @@ def extract_feature_metrics(feature: dict, installation_id: str):
             metric.labels(**labels).set(value)
         elif isinstance(metric, Enum):
             metric.labels(**labels).state(value)
+
+
+def _fetch_devices_features(vicare: PyViCare) -> int:
+
+    n_features = 0
+    for device in vicare.devices:
+        features = device.service.fetch_all_features()
+
+        for feature in features["data"]:
+            extract_feature_metrics(feature, installation_id=device.service.accessor.id)
+            n_features += 1
+
+    return n_features
+
+
+def poll_forever(vicare: PyViCare, sleep=120):
+
+    while True:
+
+        t = time.time()
+
+        try:
+            n_features = _fetch_devices_features(vicare)
+        except PyViCareInternalServerError as err:
+            log.error(
+                f"An ViCare internal error occured - will try again in {sleep} seconds",
+                exc_info=True,
+            )
+        except PyViCareRateLimitError as err:
+            log.error(err.message)
+            log.error("Waiting until rate limit reset.")
+            time.sleep((err.limitResetDate - datetime.now()).total_seconds())
+        else:
+            log.info(f"Fetched {n_features} features in {time.time() - t:g} seconds")
+
+        try:
+            time.sleep(sleep)
+        except KeyboardInterrupt:
+            log.info("Shutting down.")
+            return
