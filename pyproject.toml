@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "vicare-exporter"
+version = "0.1.0"
+description = "Prometheus exporter for ViCare metrics"
+authors = ["Sebastian Eckweiler <seb.eckweiler@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+prometheus-client = "^0.14.1"
+PyViCare = "^2.16.4"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry-dynamic-versioning]
+enable = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry.core.masonry.api"
