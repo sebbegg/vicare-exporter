@@ -3,6 +3,8 @@ name: Docker Image CI
 on:
   push:
     branches: [ main ]
+    tags: [ v.* ]
+
   pull_request:
     branches: [ main ]
     
@@ -36,16 +38,16 @@ jobs:
 
         ref="${{ github.ref }}"
 
-        if [[ "$ref" == "refs/pull/3/merge" ]]
+        if [[ "$ref" == "refs/heads/main" ]]
         then
-          echo docker push ghcr.io/sebbegg/${IMAGE_NAME}:latest
+          docker push ghcr.io/sebbegg/${IMAGE_NAME}:latest
         fi
 
         if [[ "$ref" =~ refs/tags/v[0-9].* ]]
         then
           version="${{ github.ref_name }}"
-          echo docker tag ghcr.io/sebbegg/${IMAGE_NAME}:${{ github.run_id }} ghcr.io/sebbegg/${IMAGE_NAME}:$version
-          echo docker push ghcr.io/sebbegg/${IMAGE_NAME}:$version
+          docker tag ghcr.io/sebbegg/${IMAGE_NAME}:${{ github.run_id }} ghcr.io/sebbegg/${IMAGE_NAME}:$version
+          docker push ghcr.io/sebbegg/${IMAGE_NAME}:$version
         fi
 
 
