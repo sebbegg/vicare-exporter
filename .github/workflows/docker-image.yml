@@ -36,7 +36,7 @@ jobs:
 
         ref="${{ github.ref }}"
 
-        if [ "$ref" == "refs/heads/main" ]
+        if [[ "$ref" == "refs/heads/main" ]]
         then
           echo docker push ghcr.io/sebbegg/${IMAGE_NAME}:latest
         fi
