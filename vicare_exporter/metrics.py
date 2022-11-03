@@ -5,13 +5,12 @@ from datetime import datetime
 
 from prometheus_client import Enum, Gauge
 from PyViCare.PyViCare import PyViCare
-from PyViCare.PyViCareUtils import (PyViCareInternalServerError,
-                                    PyViCareRateLimitError)
+from PyViCare.PyViCareUtils import PyViCareInternalServerError, PyViCareRateLimitError
 
 log = logging.getLogger("vicare_exporter")
 unit_translations = {"kilowattHour": "kWh"}
 
-_component_re = re.compile("^heating_(circuit|burner)s_(\d+)(.*)")
+_component_re = re.compile("^heating_(.*)_(\d+)(.*)")
 
 
 def _extract_circuit_id(feature_name) -> tuple[str, str]:
@@ -67,6 +66,20 @@ def get_metric_for_name(name: str, labels: list[str]):
     return _metrics[name]
 
 
+PROPERTY_NAMES = [
+    "active",
+    "currentDay",
+    "day",
+    "hours",
+    "shift",
+    "slope",
+    "starts",
+    "status",
+    "temperature",
+    "value",
+]
+
+
 def extract_feature_metrics(feature: dict, installation_id: str):
 
     ##print(feature)
@@ -87,7 +100,7 @@ def extract_feature_metrics(feature: dict, installation_id: str):
     if component_id is not None:
         labels[label_name] = component_id
 
-    for prop in ["value", "active", "shift", "slope", "day", "status"]:
+    for prop in PROPERTY_NAMES:
         if prop not in props:
             continue
         unit = props[prop].get("unit", "")
@@ -112,7 +125,7 @@ def extract_feature_metrics(feature: dict, installation_id: str):
 
         if isinstance(metric, Gauge):
             metric.labels(**labels).set(value)
-        elif isinstance(metric, Enum):
+        else:
             metric.labels(**labels).state(value)
 
 
@@ -120,7 +133,7 @@ def _fetch_devices_features(vicare: PyViCare) -> int:
 
     n_features = 0
     for device in vicare.devices:
-        features = device.service.fetch_all_features()
+        features = device.asGazBoiler.service.fetch_all_features()
 
         for feature in features["data"]:
             extract_feature_metrics(feature, installation_id=device.service.accessor.id)
@@ -129,25 +142,30 @@ def _fetch_devices_features(vicare: PyViCare) -> int:
     return n_features
 
 
+def poll(vicare: PyViCare):
+    t = time.time()
+
+    try:
+        n_features = _fetch_devices_features(vicare)
+    except PyViCareInternalServerError as err:
+        log.error(
+            f"An ViCare internal error occured - will try again in {sleep} seconds",
+            exc_info=True,
+        )
+    else:
+        log.info(f"Fetched {n_features} features in {time.time() - t:g} seconds")
+
+
 def poll_forever(vicare: PyViCare, sleep=120):
 
     while True:
 
-        t = time.time()
-
         try:
-            n_features = _fetch_devices_features(vicare)
-        except PyViCareInternalServerError as err:
-            log.error(
-                f"An ViCare internal error occured - will try again in {sleep} seconds",
-                exc_info=True,
-            )
+            poll(vicare)
         except PyViCareRateLimitError as err:
             log.error(err.message)
             log.error("Waiting until rate limit reset.")
             time.sleep((err.limitResetDate - datetime.now()).total_seconds())
-        else:
-            log.info(f"Fetched {n_features} features in {time.time() - t:g} seconds")
 
         try:
             time.sleep(sleep)

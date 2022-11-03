@@ -5,11 +5,15 @@ description = "Prometheus exporter for ViCare metrics"
 authors = ["Sebastian Eckweiler <seb.eckweiler@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.7"
+python = ">=3.7,<4"
 prometheus-client = "^0.14.1"
 PyViCare = "^2.16.4"
+urllib3 = ">=1.26"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+black = {version = "^22.10.0", allow-prereleases = true}
 
 [tool.poetry-dynamic-versioning]
 enable = true
