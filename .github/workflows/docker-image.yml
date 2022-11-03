@@ -41,7 +41,7 @@ jobs:
           echo docker push ghcr.io/sebbegg/${IMAGE_NAME}:latest
         fi
 
-        if [[ "$ref" =~ refs/tags/v[0-9].*" ]]
+        if [[ "$ref" =~ refs/tags/v[0-9].* ]]
         then
           version="${{ github.ref_name }}"
           echo docker tag ghcr.io/sebbegg/${IMAGE_NAME}:${{ github.run_id }} ghcr.io/sebbegg/${IMAGE_NAME}:$version
