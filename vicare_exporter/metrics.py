@@ -10,7 +10,20 @@ from PyViCare.PyViCareUtils import PyViCareInternalServerError, PyViCareRateLimi
 log = logging.getLogger("vicare_exporter")
 unit_translations = {"kilowattHour": "kWh"}
 
-_component_re = re.compile("^heating_(.*)_(\d+)(.*)")
+PROPERTY_NAMES = [
+    "active",
+    "currentDay",
+    "day",
+    "hours",
+    "shift",
+    "slope",
+    "starts",
+    "status",
+    "temperature",
+    "value",
+]
+
+_component_re = re.compile(r"^heating_(.*)_(\d+)(.*)")
 
 
 def _extract_circuit_id(feature_name) -> tuple[str, str]:
@@ -66,23 +79,8 @@ def get_metric_for_name(name: str, labels: list[str]):
     return _metrics[name]
 
 
-PROPERTY_NAMES = [
-    "active",
-    "currentDay",
-    "day",
-    "hours",
-    "shift",
-    "slope",
-    "starts",
-    "status",
-    "temperature",
-    "value",
-]
-
-
 def extract_feature_metrics(feature: dict, installation_id: str):
 
-    ##print(feature)
     props = feature.get("properties")
     if not props:
         return []
@@ -121,8 +119,7 @@ def extract_feature_metrics(feature: dict, installation_id: str):
         else:
             name = "_".join((feature_name, prop))
 
-        metric = get_metric_for_name(name, tuple(sorted(labels)))
-
+        metric = get_metric_for_name(name, sorted(labels))
         if isinstance(metric, Gauge):
             metric.labels(**labels).set(value)
         else:
@@ -147,9 +144,9 @@ def poll(vicare: PyViCare):
 
     try:
         n_features = _fetch_devices_features(vicare)
-    except PyViCareInternalServerError as err:
+    except PyViCareInternalServerError:
         log.error(
-            f"An ViCare internal error occured - will try again in {sleep} seconds",
+            "An ViCare internal error occured",
             exc_info=True,
         )
     else:

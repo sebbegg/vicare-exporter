@@ -1,11 +1,11 @@
 version: "3"
-services: 
+services:
   prometheus:
     restart: always
     image: prom/prometheus:latest
     ports:
       - "9090:9090"
-    volumes: 
+    volumes:
       - prometheus-data:/prometheus/data
       - ./example/prometheus.yml:/etc/prometheus/prometheus.yml
   grafana:
@@ -18,13 +18,13 @@ services:
     image: ghcr.io/sebbegg/vicare-exporter:latest
     build:
       context: .
-    environment: 
+    environment:
       VICARE_USERNAME: ${VICARE_USERNAME}
       VICARE_PASSWORD: ${VICARE_PASSWORD}
       VICARE_CLIENT_ID: ${VICARE_CLIENT_ID}
     ports:
       - 9100:9100
 
-volumes: 
+volumes:
   grafana-data:
   prometheus-data:
