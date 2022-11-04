@@ -130,7 +130,7 @@ def _fetch_devices_features(vicare: PyViCare) -> int:
 
     n_features = 0
     for device in vicare.devices:
-        features = device.asGazBoiler.service.fetch_all_features()
+        features = device.service.fetch_all_features()
 
         for feature in features["data"]:
             extract_feature_metrics(feature, installation_id=device.service.accessor.id)
