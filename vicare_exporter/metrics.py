@@ -8,8 +8,8 @@ from PyViCare.PyViCare import PyViCare
 from PyViCare.PyViCareUtils import PyViCareInternalServerError, PyViCareRateLimitError
 
 log = logging.getLogger("vicare_exporter")
-unit_translations = {"kilowattHour": "kWh"}
 
+UNITS = {"kilowattHour": "kWh"}
 PROPERTY_NAMES = [
     "active",
     "currentDay",
@@ -102,7 +102,7 @@ def extract_feature_metrics(feature: dict, installation_id: str):
         if prop not in props:
             continue
         unit = props[prop].get("unit", "")
-        unit = unit_translations.get(unit, unit)
+        unit = UNITS.get(unit, unit)
 
         value = props[prop]["value"]
         # pick only the current day as metric
