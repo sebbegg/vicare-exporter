@@ -1,2 +1,0 @@
-prometheus-client==0.13.1
-PyViCare==2.16.1

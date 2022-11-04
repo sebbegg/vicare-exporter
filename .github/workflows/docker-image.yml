@@ -3,9 +3,11 @@ name: Docker Image CI
 on:
   push:
     branches: [ main ]
+    tags: [ v* ]
+
   pull_request:
     branches: [ main ]
-    
+
 env:
   IMAGE_NAME: vicare-exporter
 
@@ -20,15 +22,30 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-        
+
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile \
+        docker build . \
         --tag ghcr.io/sebbegg/${IMAGE_NAME}:${{ github.run_id }} \
         --tag ghcr.io/sebbegg/${IMAGE_NAME}:latest
-        
+
     - name: Push docker image
       run: |
+        set -ex
+
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-        docker push -a ghcr.io/sebbegg/${IMAGE_NAME}
-    
+        echo docker push ghcr.io/sebbegg/${IMAGE_NAME}:${{ github.run_id }}
+
+        ref="${{ github.ref }}"
+
+        if [[ "$ref" == "refs/heads/main" ]]
+        then
+          docker push ghcr.io/sebbegg/${IMAGE_NAME}:latest
+        fi
+
+        if [[ "$ref" =~ refs/tags/v[0-9].* ]]
+        then
+          version="${{ github.ref_name }}"
+          docker tag ghcr.io/sebbegg/${IMAGE_NAME}:${{ github.run_id }} ghcr.io/sebbegg/${IMAGE_NAME}:$version
+          docker push ghcr.io/sebbegg/${IMAGE_NAME}:$version
+        fi
