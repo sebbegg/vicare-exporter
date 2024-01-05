@@ -1,14 +1,18 @@
 [tool.poetry]
 name = "vicare-exporter"
-version = "0.1.0"
+# dummy version
+version = "0.0.0"
 description = "Prometheus exporter for ViCare metrics"
 authors = ["Sebastian Eckweiler <seb.eckweiler@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<4"
-prometheus-client = "^0.14.1"
+python = ">=3.8,<4"
+prometheus-client = "^0.19.0"
 urllib3 = ">=1.26"
-pyvicare = "^2.17.0"
+pyvicare = "^2.30.0"
+pyyaml = ">=6.0.1,<6.1.0"
+python-dotenv = "^1.0.0"
+requests = "^2.31.0"
 
 [tool.poetry.dev-dependencies]
 
@@ -20,8 +24,8 @@ pre-commit = "^2.20.0"
 enable = true
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.isort]
 profile = "black"
