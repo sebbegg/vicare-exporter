@@ -50,7 +50,7 @@ def get_metric_for_name(name: str, labels: list[str]):
         _metrics[name] = Enum(
             name,
             "Active heatings modes",
-            states=["standby", "dhw", "dhwAndHeating", "forcedReduced", "forcedNormal"],
+            states=["standby", "dhw", "dhwAndHeating", "forcedReduced", "forcedNormal", "heating", "eco"],
             labelnames=labels,
         )
     elif name.endswith("_operating_programs_active_value"):
