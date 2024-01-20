@@ -132,7 +132,7 @@ def _fetch_devices_features(vicare: PyViCare) -> int:
     for device in vicare.devices:
         features = device.service.fetch_all_features()
 
-        for feature in features["data"]:
+        for feature in features.get("data", []):
             extract_feature_metrics(feature, installation_id=device.service.accessor.id)
             n_features += 1
 
