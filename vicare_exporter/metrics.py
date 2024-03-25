@@ -7,6 +7,8 @@ from prometheus_client import Enum, Gauge
 from PyViCare.PyViCare import PyViCare
 from PyViCare.PyViCareUtils import PyViCareInternalServerError, PyViCareRateLimitError
 
+from .enums import HEATING_CIRCUIT_OPERATING_MODES, HEATING_CIRCUIT_OPERATING_PROGRAMS
+
 log = logging.getLogger("vicare_exporter")
 
 UNITS = {"kilowattHour": "kWh"}
@@ -49,24 +51,15 @@ def get_metric_for_name(name: str, labels: list[str]):
     if name.endswith("_operating_modes_active_value"):
         _metrics[name] = Enum(
             name,
-            "Active heatings modes",
-            states=["standby", "dhw", "dhwAndHeating", "forcedReduced", "forcedNormal", "heating", "eco", "off", "comfort"],
+            "Active heating modes",
+            states=HEATING_CIRCUIT_OPERATING_MODES,
             labelnames=labels,
         )
     elif name.endswith("_operating_programs_active_value"):
         _metrics[name] = Enum(
             name,
             "Active heating program",
-            states=[
-                "active",
-                "comfort",
-                "eco",
-                "external",
-                "holiday",
-                "normal",
-                "reduced",
-                "standby",
-            ],
+            states=HEATING_CIRCUIT_OPERATING_PROGRAMS,
             labelnames=labels,
         )
     elif name.endswith("_status"):
