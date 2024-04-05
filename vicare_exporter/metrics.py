@@ -1,13 +1,14 @@
+import functools
 import logging
-import re
 import time
 from datetime import datetime
+from typing import Optional
 
 from prometheus_client import Enum, Gauge
 from PyViCare.PyViCare import PyViCare
 from PyViCare.PyViCareUtils import PyViCareInternalServerError, PyViCareRateLimitError
 
-from .enums import HEATING_CIRCUIT_OPERATING_MODES, HEATING_CIRCUIT_OPERATING_PROGRAMS
+from .enums import _ENUMS
 
 log = logging.getLogger("vicare_exporter")
 
@@ -25,51 +26,38 @@ PROPERTY_NAMES = [
     "value",
 ]
 
-_component_re = re.compile(r"^heating_(.*)_(\d+)(.*)")
+
+def _extract_component_id(feature_name) -> tuple[Optional[str], Optional[str], str]:
+    parts: list[str] = feature_name.split("_")
+    prev = parts[0]
+    for i, part in enumerate(parts[1:], start=1):
+        if part.isdigit():
+            component_id = part
+            label = prev + "_id"
+            name = "_".join(parts[:i] + parts[i + 1 :])
+            return component_id, label, name
+        prev = part
+
+    return None, None, feature_name
 
 
-def _extract_circuit_id(feature_name) -> tuple[str, str]:
-    component_match = _component_re.match(feature_name)
-    if component_match:
-        component_id = component_match.group(2)
-        name = _component_re.sub(r"heating_\1\3", feature_name)
-        label = component_match.group(1) + "_id"
-        return component_id, label, name
+@functools.cache
+def get_metric_for_name(name: str, labels: tuple[str]):
 
-    else:
-        return None, None, feature_name
-
-
-# want this memoized so we don't create duplicated metrics
-_metrics = {}
-
-
-def get_metric_for_name(name: str, labels: list[str]):
-    if name in _metrics:
-        return _metrics[name]
-
-    if name.endswith("_operating_modes_active_value"):
-        _metrics[name] = Enum(
+    log.debug("Getting metric for: %s", name)
+    documentation, states = _ENUMS.get(name, (None, None))
+    if documentation:
+        return Enum(
             name,
-            "Active heating modes",
-            states=HEATING_CIRCUIT_OPERATING_MODES,
+            documentation=documentation,
+            states=states,
             labelnames=labels,
         )
-    elif name.endswith("_operating_programs_active_value"):
-        _metrics[name] = Enum(
-            name,
-            "Active heating program",
-            states=HEATING_CIRCUIT_OPERATING_PROGRAMS,
-            labelnames=labels,
-        )
-    elif name.endswith("_status"):
-        _metrics[name] = Enum(
-            name, "Status", states=["error", "connected"], labelnames=labels
-        )
-    else:
-        _metrics[name] = Gauge(name, name, labelnames=labels)
 
-    return _metrics[name]
+    if name.endswith("_status"):
+        return Enum(name, "Status", states=["error", "connected"], labelnames=labels)
+    else:
+        return Gauge(name, name, labelnames=labels)
 
 
 def extract_feature_metrics(feature: dict, installation_id: str):
@@ -78,7 +66,7 @@ def extract_feature_metrics(feature: dict, installation_id: str):
     if not props:
         return []
 
-    feature_name = feature["feature"].replace(".", "_")
+    metric_name = feature["feature"].replace(".", "_")
 
     labels = dict(
         gateway_id=feature["gatewayId"],
@@ -86,11 +74,12 @@ def extract_feature_metrics(feature: dict, installation_id: str):
         installation_id=installation_id,
     )
 
-    # check if this is a heating circuit metric
-    component_id, label_name, feature_name = _extract_circuit_id(feature_name)
+    # check if this is a heating circuit/burners metric
+    component_id, label_name, metric_name = _extract_component_id(metric_name)
     if component_id is not None:
         labels[label_name] = component_id
 
+    label_names = tuple(sorted(labels))
     for prop in PROPERTY_NAMES:
         if prop not in props:
             continue
@@ -103,16 +92,16 @@ def extract_feature_metrics(feature: dict, installation_id: str):
             value = value[0]
 
         # map on/off to true/false
-        if prop == "status" and value in ("on", "off"):
+        elif prop == "status" and value in ("on", "off"):
             prop = "on"
             value = value == "on"
 
         if unit:
-            name = "_".join((feature_name, prop, unit))
+            name = "_".join((metric_name, prop, unit))
         else:
-            name = "_".join((feature_name, prop))
+            name = "_".join((metric_name, prop))
 
-        metric = get_metric_for_name(name, sorted(labels))
+        metric = get_metric_for_name(name, label_names)
         if isinstance(metric, Gauge):
             metric.labels(**labels).set(value)
         else:
@@ -139,7 +128,7 @@ def poll(vicare: PyViCare):
         n_features = _fetch_devices_features(vicare)
     except PyViCareInternalServerError:
         log.error(
-            "An ViCare internal error occured",
+            "An ViCare internal error occurred",
             exc_info=True,
         )
     else:

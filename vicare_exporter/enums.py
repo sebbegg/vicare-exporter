@@ -43,3 +43,20 @@ HEATING_CIRCUIT_OPERATING_MODES = [
     "normalStandby",
     "standby",
 ]
+
+HEATING_DHW_OPERATING_MODES = ["active", "balanced", "comfort", "eco", "off"]
+
+_ENUMS = {
+    "heating_dhw_operating_modes_active_value": (
+        "Active DHW operating mode",
+        HEATING_DHW_OPERATING_MODES,
+    ),
+    "heating_circuits_operating_programs_active_value": (
+        "Active heating program",
+        HEATING_CIRCUIT_OPERATING_PROGRAMS,
+    ),
+    "heating_circuits_operating_modes_active_value": (
+        "Active heating modes",
+        HEATING_CIRCUIT_OPERATING_MODES,
+    ),
+}
