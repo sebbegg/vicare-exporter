@@ -28,7 +28,7 @@ PROPERTY_NAMES = [
 
 
 def _extract_component_id(feature_name) -> tuple[Optional[str], Optional[str], str]:
-    parts: list[str] = feature_name.split("_")
+    parts = feature_name.split(".")
     prev = parts[0]
     for i, part in enumerate(parts[1:], start=1):
         if part.isdigit():
@@ -38,7 +38,7 @@ def _extract_component_id(feature_name) -> tuple[Optional[str], Optional[str], s
             return component_id, label, name
         prev = part
 
-    return None, None, feature_name
+    return None, None, "_".join(parts)
 
 
 @functools.cache
@@ -66,8 +66,6 @@ def extract_feature_metrics(feature: dict, installation_id: str):
     if not props:
         return []
 
-    metric_name = feature["feature"].replace(".", "_")
-
     labels = dict(
         gateway_id=feature["gatewayId"],
         device_id=feature["deviceId"],
@@ -75,7 +73,7 @@ def extract_feature_metrics(feature: dict, installation_id: str):
     )
 
     # check if this is a heating circuit/burners metric
-    component_id, label_name, metric_name = _extract_component_id(metric_name)
+    component_id, label_name, metric_name = _extract_component_id(feature["feature"])
     if component_id is not None:
         labels[label_name] = component_id
 

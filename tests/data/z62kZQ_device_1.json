@@ -1,0 +1,2365 @@
+{
+ "data": [
+  {
+   "feature": "device.messages.errors.raw",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "entries": {
+     "type": "array",
+     "value": []
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "device.serial",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.boiler.sensors.temperature.commonSupply",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.boiler.sensors.temperature.main",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 32,
+     "unit": "celsius"
+    },
+    "status": {
+     "type": "string",
+     "value": "connected"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.boiler.serial",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.boiler.temperature",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 27.4,
+     "unit": "celsius"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.burners",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "enabled": {
+     "type": "array",
+     "value": [
+      "0"
+     ]
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.burners.0.modulation",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 0,
+     "unit": "percent"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.burners.0.statistics",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "hours": {
+     "type": "number",
+     "value": 6830.9,
+     "unit": "hour"
+    },
+    "starts": {
+     "type": "number",
+     "value": 34010,
+     "unit": ""
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.burners.0",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "enabled": {
+     "type": "array",
+     "value": [
+      "0"
+     ]
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.circulation.pump",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "status": {
+     "type": "string",
+     "value": "on"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.circulation.pump",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.circulation.pump",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.dhw.pumps.circulation.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.dhw.pumps.circulation.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.dhw.pumps.circulation.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.dhw.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.dhw.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.dhw.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.frostprotection",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "status": {
+     "type": "string",
+     "value": "off"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.frostprotection",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.frostprotection",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.heating.curve",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "shift": {
+     "type": "number",
+     "value": 2,
+     "unit": ""
+    },
+    "slope": {
+     "type": "number",
+     "value": 0.8,
+     "unit": ""
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.heating.curve",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.heating.curve",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.heating.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "entries": {
+     "type": "Schedule",
+     "value": {
+      "mon": [
+       {
+        "start": "05:00",
+        "end": "22:00",
+        "mode": "normal",
+        "position": 0
+       }
+      ],
+      "tue": [
+       {
+        "start": "05:00",
+        "end": "22:00",
+        "mode": "normal",
+        "position": 0
+       }
+      ],
+      "wed": [
+       {
+        "start": "05:00",
+        "end": "22:00",
+        "mode": "normal",
+        "position": 0
+       }
+      ],
+      "thu": [
+       {
+        "start": "05:00",
+        "end": "22:00",
+        "mode": "normal",
+        "position": 0
+       }
+      ],
+      "fri": [
+       {
+        "start": "05:00",
+        "end": "22:00",
+        "mode": "normal",
+        "position": 0
+       }
+      ],
+      "sat": [
+       {
+        "start": "05:00",
+        "end": "22:00",
+        "mode": "normal",
+        "position": 0
+       }
+      ],
+      "sun": [
+       {
+        "start": "05:00",
+        "end": "22:00",
+        "mode": "normal",
+        "position": 0
+       }
+      ]
+     }
+    },
+    "active": {
+     "type": "boolean",
+     "value": true
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.heating.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.heating.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.modes.active",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "string",
+     "value": "dhwAndHeating"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.modes.active",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.modes.active",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.modes.dhw",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.modes.dhw",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.modes.dhw",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.modes.dhwAndHeating",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": true
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.modes.dhwAndHeating",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.modes.dhwAndHeating",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.modes.forcedNormal",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.modes.forcedNormal",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.modes.forcedNormal",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.modes.forcedReduced",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.modes.forcedReduced",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.modes.forcedReduced",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.modes.heating",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.modes.heating",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.modes.heating",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.modes.standby",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.modes.standby",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.modes.standby",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.programs.active",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "string",
+     "value": "normal"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.programs.active",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.programs.active",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.programs.comfort",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    },
+    "demand": {
+     "type": "string",
+     "value": "unknown"
+    },
+    "temperature": {
+     "type": "number",
+     "value": 24,
+     "unit": "celsius"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.programs.comfort",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.programs.comfort",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.programs.eco",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    },
+    "temperature": {
+     "type": "number",
+     "value": 20,
+     "unit": "celsius"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.programs.eco",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.programs.eco",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.programs.external",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    },
+    "temperature": {
+     "type": "number",
+     "value": 0,
+     "unit": ""
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.programs.external",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.programs.external",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.programs.holiday",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.programs.holiday",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.programs.holiday",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.programs.normal",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": true
+    },
+    "demand": {
+     "type": "string",
+     "value": "unknown"
+    },
+    "temperature": {
+     "type": "number",
+     "value": 20,
+     "unit": "celsius"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.programs.normal",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.programs.normal",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.programs.reduced",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    },
+    "demand": {
+     "type": "string",
+     "value": "unknown"
+    },
+    "temperature": {
+     "type": "number",
+     "value": 15,
+     "unit": "celsius"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.programs.reduced",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.programs.reduced",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.operating.programs.standby",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.operating.programs.standby",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.operating.programs.standby",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.sensors.temperature.room",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.sensors.temperature.room",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.sensors.temperature.room",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0.sensors.temperature.supply",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 32,
+     "unit": "celsius"
+    },
+    "status": {
+     "type": "string",
+     "value": "connected"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1.sensors.temperature.supply",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2.sensors.temperature.supply",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.0",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": true
+    },
+    "name": {
+     "type": "string",
+     "value": ""
+    },
+    "type": {
+     "type": "string",
+     "value": "heatingCircuit"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.1",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.circuits.2",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": false,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.controller.serial",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {},
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": true
+    },
+    "status": {
+     "type": "string",
+     "value": "on"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw.charging",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw.oneTimeCharge",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw.pumps.circulation",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "status": {
+     "type": "string",
+     "value": "off"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw.pumps.circulation.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "entries": {
+     "type": "Schedule",
+     "value": {
+      "mon": [
+       {
+        "start": "18:30",
+        "end": "21:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "tue": [
+       {
+        "start": "18:30",
+        "end": "21:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "wed": [
+       {
+        "start": "18:30",
+        "end": "21:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "thu": [
+       {
+        "start": "18:30",
+        "end": "21:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "fri": [
+       {
+        "start": "18:30",
+        "end": "21:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "sat": [
+       {
+        "start": "18:30",
+        "end": "21:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "sun": [
+       {
+        "start": "18:30",
+        "end": "21:00",
+        "mode": "on",
+        "position": 0
+       }
+      ]
+     }
+    },
+    "active": {
+     "type": "boolean",
+     "value": true
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw.pumps.primary",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "status": {
+     "type": "string",
+     "value": "off"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw.schedule",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "entries": {
+     "type": "Schedule",
+     "value": {
+      "mon": [
+       {
+        "start": "05:30",
+        "end": "22:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "tue": [
+       {
+        "start": "05:30",
+        "end": "22:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "wed": [
+       {
+        "start": "05:30",
+        "end": "22:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "thu": [
+       {
+        "start": "05:30",
+        "end": "22:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "fri": [
+       {
+        "start": "05:30",
+        "end": "22:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "sat": [
+       {
+        "start": "05:30",
+        "end": "22:00",
+        "mode": "on",
+        "position": 0
+       }
+      ],
+      "sun": [
+       {
+        "start": "05:30",
+        "end": "22:00",
+        "mode": "on",
+        "position": 0
+       }
+      ]
+     }
+    },
+    "active": {
+     "type": "boolean",
+     "value": true
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw.sensors.temperature.dhwCylinder",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 53.2,
+     "unit": "celsius"
+    },
+    "status": {
+     "type": "string",
+     "value": "connected"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw.sensors.temperature.hotWaterStorage",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 53.2,
+     "unit": "celsius"
+    },
+    "status": {
+     "type": "string",
+     "value": "connected"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw.sensors.temperature.outlet",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "status": {
+     "type": "string",
+     "value": "error"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.dhw.temperature.main",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 55,
+     "unit": "celsius"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.gas.consumption.dhw",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "day": {
+     "type": "array",
+     "value": [
+      4,
+      5,
+      2,
+      3,
+      6,
+      6,
+      4,
+      11
+     ],
+     "unit": "kilowattHour"
+    },
+    "week": {
+     "type": "array",
+     "value": [
+      20,
+      39,
+      48,
+      46,
+      41,
+      38,
+      40,
+      23,
+      48,
+      58,
+      45,
+      41,
+      45,
+      56,
+      52,
+      67,
+      43,
+      45,
+      41,
+      42,
+      50,
+      36,
+      42,
+      38,
+      32,
+      33,
+      23,
+      31,
+      28,
+      29,
+      32,
+      31,
+      27,
+      32,
+      16,
+      12,
+      25,
+      27,
+      26,
+      31,
+      31,
+      21,
+      35,
+      30,
+      35,
+      12,
+      40,
+      41,
+      45,
+      36,
+      45,
+      52,
+      44
+     ],
+     "unit": "kilowattHour"
+    },
+    "month": {
+     "type": "array",
+     "value": [
+      20,
+      194,
+      170,
+      204,
+      222,
+      186,
+      143,
+      131,
+      99,
+      122,
+      131,
+      147,
+      194
+     ],
+     "unit": "kilowattHour"
+    },
+    "year": {
+     "type": "array",
+     "value": [
+      588,
+      1945,
+      2078
+     ],
+     "unit": "kilowattHour"
+    },
+    "dayValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T18:19:02.819Z"
+    },
+    "weekValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T18:19:09.709Z"
+    },
+    "monthValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T18:19:10.240Z"
+    },
+    "yearValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T18:19:10.801Z"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.gas.consumption.heating",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "day": {
+     "type": "array",
+     "value": [
+      8,
+      11,
+      16,
+      13,
+      11,
+      11,
+      17,
+      14
+     ],
+     "unit": "kilowattHour"
+    },
+    "week": {
+     "type": "array",
+     "value": [
+      59,
+      91,
+      63,
+      98,
+      146,
+      132,
+      145,
+      124,
+      123,
+      137,
+      163,
+      264,
+      281,
+      193,
+      147,
+      166,
+      146,
+      207,
+      222,
+      168,
+      127,
+      124,
+      92,
+      40,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      4,
+      31,
+      16,
+      75,
+      77,
+      101
+     ],
+     "unit": "kilowattHour"
+    },
+    "month": {
+     "type": "array",
+     "value": [
+      59,
+      444,
+      558,
+      958,
+      768,
+      613,
+      60,
+      0,
+      0,
+      0,
+      0,
+      39,
+      295
+     ],
+     "unit": "kilowattHour"
+    },
+    "year": {
+     "type": "array",
+     "value": [
+      2019,
+      3923,
+      4049
+     ],
+     "unit": "kilowattHour"
+    },
+    "dayValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T10:17:27.243Z"
+    },
+    "weekValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T10:18:55.273Z"
+    },
+    "monthValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T10:18:55.735Z"
+    },
+    "yearValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T10:18:55.903Z"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.gas.consumption.total",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "day": {
+     "type": "array",
+     "value": [
+      12,
+      16,
+      18,
+      16,
+      17,
+      17,
+      21,
+      25
+     ],
+     "unit": "kilowattHour"
+    },
+    "week": {
+     "type": "array",
+     "value": [
+      79,
+      130,
+      111,
+      144,
+      187,
+      170,
+      185,
+      147,
+      171,
+      195,
+      208,
+      305,
+      326,
+      249,
+      199,
+      233,
+      189,
+      252,
+      263,
+      210,
+      177,
+      160,
+      134,
+      78,
+      33,
+      33,
+      24,
+      31,
+      28,
+      29,
+      32,
+      31,
+      27,
+      32,
+      16,
+      12,
+      25,
+      27,
+      26,
+      31,
+      31,
+      21,
+      35,
+      30,
+      35,
+      12,
+      44,
+      45,
+      76,
+      52,
+      120,
+      129,
+      145
+     ],
+     "unit": "kilowattHour"
+    },
+    "month": {
+     "type": "array",
+     "value": [
+      79,
+      638,
+      728,
+      1162,
+      990,
+      799,
+      203,
+      131,
+      99,
+      122,
+      131,
+      186,
+      489
+     ],
+     "unit": "kilowattHour"
+    },
+    "year": {
+     "type": "array",
+     "value": [
+      2607,
+      5868,
+      6127
+     ],
+     "unit": "kilowattHour"
+    },
+    "dayValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T10:17:27.243Z"
+    },
+    "weekValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T10:18:55.273Z"
+    },
+    "monthValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T10:18:55.735Z"
+    },
+    "yearValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T10:18:55.903Z"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.operating.programs.holiday",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": false
+    },
+    "start": {
+     "type": "string",
+     "value": ""
+    },
+    "end": {
+     "type": "string",
+     "value": ""
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.power.consumption.total",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "day": {
+     "type": "array",
+     "value": [
+      0.714,
+      1.011,
+      1.034,
+      1.035,
+      0.969,
+      0.929,
+      1.028,
+      0.933
+     ],
+     "unit": "kilowattHour"
+    },
+    "week": {
+     "type": "array",
+     "value": [
+      4.728,
+      6.819,
+      6.889,
+      7.163,
+      7.409,
+      7.313,
+      7.381,
+      7.27,
+      7.276,
+      7.364,
+      7.448,
+      7.792,
+      8.412,
+      7.474,
+      7.386,
+      7.428,
+      7.419,
+      7.705,
+      7.754,
+      7.472,
+      7.25,
+      7.356,
+      7.163,
+      7.007,
+      6.866,
+      5.051,
+      5.434,
+      4.856,
+      5.222,
+      3.56,
+      3.219,
+      5.049,
+      3.345,
+      2.657,
+      3.73,
+      4.756,
+      4.787,
+      3.03,
+      2.508,
+      3.128,
+      3.51,
+      2.695,
+      3.135,
+      3.145,
+      3.722,
+      4.165,
+      5.836,
+      6.179,
+      5.42,
+      6.646,
+      6.755,
+      6.901,
+      7.249
+     ],
+     "unit": "kilowattHour"
+    },
+    "month": {
+     "type": "array",
+     "value": [
+      4.728,
+      31.354,
+      30.376,
+      34.28,
+      33.314,
+      31.638,
+      27.05,
+      17.737,
+      17.396,
+      15.194,
+      13.418,
+      23.198,
+      29.625
+     ],
+     "unit": "kilowattHour"
+    },
+    "year": {
+     "type": "array",
+     "value": [
+      100.778,
+      304.075,
+      306.538
+     ],
+     "unit": "kilowattHour"
+    },
+    "dayValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T18:59:52.693Z"
+    },
+    "weekValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T18:19:19.202Z"
+    },
+    "monthValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T18:19:19.652Z"
+    },
+    "yearValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T19:05:16.024Z"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.sensors.temperature.outside",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 16.5,
+     "unit": "celsius"
+    },
+    "status": {
+     "type": "string",
+     "value": "connected"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.solar",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "active": {
+     "type": "boolean",
+     "value": true
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.solar.power.cumulativeProduced",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 45183,
+     "unit": "kilowattHour"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.solar.power.production",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "day": {
+     "type": "array",
+     "value": [
+      47.51,
+      0,
+      1.089,
+      14.52,
+      0.753,
+      53.777,
+      2.229,
+      31.637
+     ],
+     "unit": "kilowattHour"
+    },
+    "week": {
+     "type": "array",
+     "value": [],
+     "unit": "kilowattHour"
+    },
+    "month": {
+     "type": "array",
+     "value": [],
+     "unit": "kilowattHour"
+    },
+    "year": {
+     "type": "array",
+     "value": [],
+     "unit": "kilowattHour"
+    },
+    "dayValueReadAt": {
+     "type": "string",
+     "value": "2024-04-05T18:19:20.212Z"
+    },
+    "weekValueReadAt": {
+     "type": "string",
+     "value": ""
+    },
+    "monthValueReadAt": {
+     "type": "string",
+     "value": ""
+    },
+    "yearValueReadAt": {
+     "type": "string",
+     "value": ""
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.solar.pumps.circuit",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "status": {
+     "type": "string",
+     "value": "off"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.solar.sensors.temperature.collector",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 16.7,
+     "unit": "celsius"
+    },
+    "status": {
+     "type": "string",
+     "value": "connected"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "feature": "heating.solar.sensors.temperature.dhw",
+   "gatewayId": "123456789",
+   "deviceId": "0",
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "isEnabled": true,
+   "isReady": true,
+   "apiVersion": 1,
+   "uri": "<unused>",
+   "properties": {
+    "value": {
+     "type": "number",
+     "value": 17.4,
+     "unit": "celsius"
+    },
+    "status": {
+     "type": "string",
+     "value": "connected"
+    }
+   },
+   "commands": {}
+  },
+  {
+   "apiVersion": 1,
+   "isEnabled": false,
+   "isReady": true,
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "uri": "<unused>",
+   "feature": "heating.circuits.0.name",
+   "deviceId": "0",
+   "gatewayId": "123456789",
+   "components": [],
+   "commands": {},
+   "properties": {}
+  },
+  {
+   "apiVersion": 1,
+   "isEnabled": false,
+   "isReady": true,
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "uri": "<unused>",
+   "feature": "heating.circuits.1.name",
+   "deviceId": "0",
+   "gatewayId": "123456789",
+   "components": [],
+   "commands": {},
+   "properties": {}
+  },
+  {
+   "apiVersion": 1,
+   "isEnabled": false,
+   "isReady": true,
+   "timestamp": "2024-04-01T01:02:03.456Z",
+   "uri": "<unused>",
+   "feature": "heating.circuits.2.name",
+   "deviceId": "0",
+   "gatewayId": "123456789",
+   "components": [],
+   "commands": {},
+   "properties": {}
+  }
+ ]
+}
