@@ -1,4 +1,8 @@
-name: Docker Image CI
+name: Build
+
+permissions:
+  checks: write
+  pull-requests: write
 
 on:
   push:
