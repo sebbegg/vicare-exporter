@@ -3,3 +3,4 @@ venv
 __pycache__
 .vicare_token
 .env
+test-results.xml

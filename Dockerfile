@@ -12,7 +12,7 @@ ADD https://install.python-poetry.org get-poetry.py
 
 RUN python get-poetry.py --yes && \
     poetry config virtualenvs.create false && \
-    poetry install && \
+    poetry install --no-root --without=dev && \
     pip uninstall -y pip && \
     python get-poetry.py --uninstall
 

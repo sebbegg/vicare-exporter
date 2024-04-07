@@ -6,11 +6,9 @@ description = "Prometheus exporter for ViCare metrics"
 authors = ["Sebastian Eckweiler <seb.eckweiler@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<4"
+python = ">=3.9,<4"
 prometheus-client = "^0.19.0"
-urllib3 = ">=1.26"
 pyvicare = "^2.30.0"
-pyyaml = ">=6.0.1,<6.1.0"
 python-dotenv = "^1.0.0"
 requests = "^2.31.0"
 
@@ -19,6 +17,7 @@ requests = "^2.31.0"
 [tool.poetry.group.dev.dependencies]
 black = {version = "^22.10.0", allow-prereleases = true}
 pre-commit = "^2.20.0"
+pytest = "^8.1.1"
 
 [tool.poetry-dynamic-versioning]
 enable = true
@@ -33,3 +32,8 @@ line_length = 1000
 
 [tool.flake8]
 max-line-length = 1000
+ignore = "E203"
+
+[tool.pytest.ini_options]
+addopts = "--junit-xml=test-results.xml"
+testpaths = ["tests"]

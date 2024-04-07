@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build
 
 on:
   push:
@@ -19,9 +19,29 @@ jobs:
     permissions:
       packages: write
       contents: read
+      checks: write
+      pull-requests: write
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+
+    - name: Install and Test
+      run: |
+        set -e
+
+        poetry install
+        poetry run pre-commit run --all-files --show-diff-on-failure
+        poetry run pytest
+
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: always()
+      with:
+        files: |
+          test-results.xml
 
     - name: Build the Docker image
       run: |
