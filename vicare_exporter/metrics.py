@@ -4,9 +4,9 @@ import time
 from datetime import datetime
 from typing import Optional
 
-from prometheus_client import Enum, Gauge
 from PyViCare.PyViCare import PyViCare
 from PyViCare.PyViCareUtils import PyViCareInternalServerError, PyViCareRateLimitError
+from prometheus_client import Enum, Gauge
 
 from .enums import _ENUMS
 
@@ -42,7 +42,7 @@ def _extract_component_id(feature_name) -> tuple[Optional[str], Optional[str], s
 
 
 @functools.cache
-def get_metric_for_name(name: str, labels: tuple[str]):
+def get_metric_for_name(name: str, labels: tuple[str], unit: str = None):
 
     log.debug("Getting metric for: %s", name)
     documentation, states = _ENUMS.get(name, (None, None))
@@ -57,7 +57,7 @@ def get_metric_for_name(name: str, labels: tuple[str]):
     if name.endswith("_status"):
         return Enum(name, "Status", states=["error", "connected"], labelnames=labels)
     else:
-        return Gauge(name, name, labelnames=labels)
+        return Gauge(name, name, labelnames=labels, unit=unit)
 
 
 def extract_feature_metrics(feature: dict, installation_id: str):
@@ -68,7 +68,7 @@ def extract_feature_metrics(feature: dict, installation_id: str):
 
     labels = dict(
         gateway_id=feature["gatewayId"],
-        device_id=feature["deviceId"],
+        device_id=feature.get("deviceId", "none"),
         installation_id=installation_id,
     )
 
@@ -94,12 +94,9 @@ def extract_feature_metrics(feature: dict, installation_id: str):
             prop = "on"
             value = value == "on"
 
-        if unit:
-            name = "_".join((metric_name, prop, unit))
-        else:
-            name = "_".join((metric_name, prop))
+        name = "_".join((metric_name, prop))
 
-        metric = get_metric_for_name(name, label_names)
+        metric = get_metric_for_name(name, label_names, unit)
         if isinstance(metric, Gauge):
             metric.labels(**labels).set(value)
         else:
