@@ -1,21 +1,13 @@
 repos:
-  - repo: https://github.com/psf/black
-    rev: 22.10.0
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.12.4
     hooks:
-      - id: black
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
-    hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: check-yaml
-      - id: check-json
-  - repo: https://github.com/timothycrosley/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-  - repo: https://github.com/john-hen/Flake8-pyproject
-    rev: 1.2.3
-    hooks:
-      - id: Flake8-pyproject
-        additional_dependencies: ["flake8-bugbear"]
+      # Run the linter.
+      - id: ruff-check
+      # sort imports
+      - id: ruff-check
+        name: sort imports
+        args: ["--select", "I", "--fix"]
+      # Run the formatter.
+      - id: ruff-format

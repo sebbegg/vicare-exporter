@@ -55,7 +55,8 @@ jobs:
 
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
         echo docker push ghcr.io/sebbegg/${IMAGE_NAME}:${{ github.run_id }}
-
+        docker push ghcr.io/sebbegg/${IMAGE_NAME}:${{ github.run_id }}
+        
         ref="${{ github.ref }}"
 
         if [[ "$ref" == "refs/heads/main" ]]

@@ -30,7 +30,6 @@ from vicare_exporter.metrics import _extract_component_id, extract_feature_metri
     ],
 )
 def test_component_id_extractor(feature: str, label: str, component_id: str, name: str):
-
     feature_id, feature_label, feature_name = _extract_component_id(feature)
     assert feature_id == component_id
     assert feature_label == label
