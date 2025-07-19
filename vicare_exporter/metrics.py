@@ -4,9 +4,9 @@ import time
 from datetime import datetime
 from typing import Optional
 
+from prometheus_client import Enum, Gauge
 from PyViCare.PyViCare import PyViCare
 from PyViCare.PyViCareUtils import PyViCareInternalServerError, PyViCareRateLimitError
-from prometheus_client import Enum, Gauge
 
 from .enums import _ENUMS
 
