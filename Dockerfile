@@ -1,20 +1,12 @@
 FROM python:3.13-alpine
 
-
 ENV PIP_NO_CACHE_DIR=1
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 ENV PATH="/root/.local/bin:${PATH}"
 
-COPY poetry.lock .
+COPY requirements.txt .
 COPY pyproject.toml .
-
-ADD https://install.python-poetry.org get-poetry.py
-
-RUN python get-poetry.py --yes && \
-    poetry config virtualenvs.create false && \
-    poetry install --no-root --without=dev && \
-    pip uninstall -y pip && \
-    python get-poetry.py --uninstall
+RUN pip install -r requirements.txt
 
 COPY vicare_exporter ./vicare_exporter
 
