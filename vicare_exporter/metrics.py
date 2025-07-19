@@ -43,7 +43,6 @@ def _extract_component_id(feature_name) -> tuple[Optional[str], Optional[str], s
 
 @functools.cache
 def get_metric_for_name(name: str, labels: tuple[str], unit: str = None):
-
     log.debug("Getting metric for: %s", name)
     documentation, states = _ENUMS.get(name, (None, None))
     if documentation:
@@ -61,7 +60,6 @@ def get_metric_for_name(name: str, labels: tuple[str], unit: str = None):
 
 
 def extract_feature_metrics(feature: dict, installation_id: str):
-
     props = feature.get("properties")
     if not props:
         return []
@@ -104,7 +102,6 @@ def extract_feature_metrics(feature: dict, installation_id: str):
 
 
 def _fetch_devices_features(vicare: PyViCare) -> int:
-
     n_features = 0
     for device in vicare.devices:
         features = device.service.fetch_all_features()
@@ -131,9 +128,7 @@ def poll(vicare: PyViCare):
 
 
 def poll_forever(vicare: PyViCare, sleep=120):
-
     while True:
-
         try:
             poll(vicare)
         except PyViCareRateLimitError as err:

@@ -11,7 +11,6 @@ TEST_TIMESTAMP = "2024-04-01T01:02:03.456Z"
 
 
 def anonymize(data):
-
     for feature in data:
         feature["gatewayId"] = TEST_GATEWAY_ID
         feature["uri"] = "<unused>"
@@ -22,7 +21,6 @@ def anonymize(data):
 
 
 if __name__ == "__main__":
-
     import dotenv
 
     dotenv.load_dotenv()

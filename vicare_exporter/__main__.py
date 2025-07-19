@@ -12,7 +12,6 @@ log = logging.getLogger("vicare_exporter")
 
 
 if __name__ == "__main__":
-
     dotenv.load_dotenv()
 
     logging.basicConfig(
