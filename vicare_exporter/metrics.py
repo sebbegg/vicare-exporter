@@ -100,8 +100,8 @@ def extract_feature_metrics(feature: dict, installation_id: str):
         else:
             metric.labels(**labels).state(value)
 
-class ViCareExporter:
 
+class ViCareExporter:
     def __init__(self, vicare: PyViCare, ignore_devices: list[str]):
         self.vicare = vicare
         self.ignore_devices = ignore_devices or []
@@ -115,11 +115,12 @@ class ViCareExporter:
 
             features = device.service.fetch_all_features()
             for feature in features.get("data", []):
-                extract_feature_metrics(feature, installation_id=device.service.accessor.id)
+                extract_feature_metrics(
+                    feature, installation_id=device.service.accessor.id
+                )
                 n_features += 1
 
         return n_features
-
 
     def poll(self):
         t = time.time()
@@ -133,7 +134,6 @@ class ViCareExporter:
             )
         else:
             log.info(f"Fetched {n_features} features in {time.time() - t:g} seconds")
-
 
     def poll_forever(self, sleep=120):
         while True:
