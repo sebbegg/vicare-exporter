@@ -36,4 +36,4 @@ if __name__ == "__main__":
     log.info(f"Polling vicare features for user {username} every {interval} seconds")
     log.info(f"Using client id {client_id[:8]}***")
     start_http_server(port=metrics_port)
-    poll_forever(vicare)
+    poll_forever(vicare, sleep=interval)
