@@ -101,43 +101,51 @@ def extract_feature_metrics(feature: dict, installation_id: str):
             metric.labels(**labels).state(value)
 
 
-def _fetch_devices_features(vicare: PyViCare) -> int:
-    n_features = 0
-    for device in vicare.devices:
-        features = device.service.fetch_all_features()
+class ViCareExporter:
+    def __init__(self, vicare: PyViCare, ignore_devices: list[str]):
+        self.vicare = vicare
+        self.ignore_devices = ignore_devices or []
 
-        for feature in features.get("data", []):
-            extract_feature_metrics(feature, installation_id=device.service.accessor.id)
-            n_features += 1
+    def _fetch_devices_features(self) -> int:
+        n_features = 0
+        for device in self.vicare.devices:
+            if device.device_id in self.ignore_devices:
+                log.debug(f"Skipping device: {device.device_id}")
+                continue
 
-    return n_features
+            features = device.service.fetch_all_features()
+            for feature in features.get("data", []):
+                extract_feature_metrics(
+                    feature, installation_id=device.service.accessor.id
+                )
+                n_features += 1
 
+        return n_features
 
-def poll(vicare: PyViCare):
-    t = time.time()
-
-    try:
-        n_features = _fetch_devices_features(vicare)
-    except PyViCareInternalServerError:
-        log.error(
-            "An ViCare internal error occurred",
-            exc_info=True,
-        )
-    else:
-        log.info(f"Fetched {n_features} features in {time.time() - t:g} seconds")
-
-
-def poll_forever(vicare: PyViCare, sleep=120):
-    while True:
-        try:
-            poll(vicare)
-        except PyViCareRateLimitError as err:
-            log.error(err.message)
-            log.error("Waiting until rate limit reset.")
-            time.sleep((err.limitResetDate - datetime.now()).total_seconds())
+    def poll(self):
+        t = time.time()
 
         try:
-            time.sleep(sleep)
-        except KeyboardInterrupt:
-            log.info("Shutting down.")
-            return
+            n_features = self._fetch_devices_features()
+        except PyViCareInternalServerError:
+            log.error(
+                "An ViCare internal error occurred",
+                exc_info=True,
+            )
+        else:
+            log.info(f"Fetched {n_features} features in {time.time() - t:g} seconds")
+
+    def poll_forever(self, sleep=120):
+        while True:
+            try:
+                self.poll()
+            except PyViCareRateLimitError as err:
+                log.error(err.message)
+                log.error("Waiting until rate limit reset.")
+                time.sleep((err.limitResetDate - datetime.now()).total_seconds())
+
+            try:
+                time.sleep(sleep)
+            except KeyboardInterrupt:
+                log.info("Shutting down.")
+                return
