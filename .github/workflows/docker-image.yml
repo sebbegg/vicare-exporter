@@ -25,16 +25,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
-
     - name: Install and Test
       run: |
         set -e
+        
+        curl -LsSf https://astral.sh/uv/install.sh | sh
 
-        poetry install
-        poetry run pre-commit run --all-files --show-diff-on-failure
-        poetry run pytest
+        uv sync
+        uv run pre-commit run --all-files --show-diff-on-failure
+        uv run pytest
 
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
@@ -45,6 +44,7 @@ jobs:
 
     - name: Build the Docker image
       run: |
+        uv export > requirements.txt
         docker build . \
         --tag ghcr.io/sebbegg/${IMAGE_NAME}:${{ github.run_id }} \
         --tag ghcr.io/sebbegg/${IMAGE_NAME}:latest
