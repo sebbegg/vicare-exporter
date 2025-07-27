@@ -1,7 +1,9 @@
 import functools
 import logging
+import signal
 import time
 from datetime import datetime
+from threading import Event
 from typing import Optional
 
 from prometheus_client import Enum, Gauge
@@ -136,16 +138,20 @@ class ViCareExporter:
             log.info(f"Fetched {n_features} features in {time.time() - t:g} seconds")
 
     def poll_forever(self, sleep=120):
-        while True:
+        stop_event = Event()
+
+        def do_stop(signum, _):
+            log.info("Received signal %s - stopping.", signum)
+            stop_event.set()
+
+        signal.signal(signal.SIGINT, do_stop)
+        signal.signal(signal.SIGTERM, do_stop)
+        while not stop_event.is_set():
             try:
                 self.poll()
             except PyViCareRateLimitError as err:
                 log.error(err.message)
                 log.error("Waiting until rate limit reset.")
-                time.sleep((err.limitResetDate - datetime.now()).total_seconds())
+                stop_event.wait((err.limitResetDate - datetime.now()).total_seconds())
 
-            try:
-                time.sleep(sleep)
-            except KeyboardInterrupt:
-                log.info("Shutting down.")
-                return
+            stop_event.wait(sleep)
