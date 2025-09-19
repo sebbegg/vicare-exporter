@@ -56,7 +56,7 @@ def get_metric_for_name(name: str, labels: tuple[str], unit: str = None):
         )
 
     if name.endswith("_status"):
-        return Enum(name, "Status", states=["error", "connected"], labelnames=labels)
+        return Enum(name, "Status", states=["error", "connected", "notConnected"], labelnames=labels)
     else:
         return Gauge(name, name, labelnames=labels, unit=unit)
 
