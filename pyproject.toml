@@ -1,28 +1,22 @@
-[tool.poetry]
+[project]
 name = "vicare-exporter"
 # dummy version
 version = "0.0.0"
 description = "Prometheus exporter for ViCare metrics"
-authors = ["Sebastian Eckweiler <seb.eckweiler@gmail.com>"]
+authors = [{name="Sebastian Eckweiler", email="seb.eckweiler@gmail.com"}]
+requires-python = ">=3.10"
+dependencies = [
+    "prometheus-client>=0.25.0",
+    "python-dotenv>=1.2.2",
+    "pyvicare>=2.60.2",
+    "requests>=2.34.2",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.9,<4"
-prometheus-client = "^0.22"
-pyvicare = "2.50"
-python-dotenv = "^1.0.0"
-requests = "^2.31.0"
+[project.scripts]
+vicare-exporter = "vicare_exporter.__main__:main"
 
-[tool.poetry.group.dev.dependencies]
-black = "^22.10.0"
-pre-commit = "^2.20.0"
-pytest = "^8.1.1"
-
-[tool.poetry-dynamic-versioning]
-enable = true
-
-[build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
-build-backend = "poetry_dynamic_versioning.backend"
+[tool.uv]
+package = true
 
 [tool.isort]
 profile = "black"
@@ -35,3 +29,10 @@ ignore = "E203"
 [tool.pytest.ini_options]
 addopts = "--junit-xml=test-results.xml"
 testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "black>=26.5.1",
+    "pre-commit~=2.20.0",
+    "pytest~=8.1.1",
+]

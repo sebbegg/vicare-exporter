@@ -10,7 +10,7 @@ from PyViCare.PyViCare import PyViCare
 
 from vicare_exporter import LOGGER, ViCareCollector
 
-if __name__ == "__main__":
+def main():
     dotenv.load_dotenv()
 
     logging.basicConfig(
@@ -58,3 +58,6 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, do_stop)
     signal.signal(signal.SIGTERM, do_stop)
     stop_event.wait()
+
+if __name__ == "__main__":
+    main()
